@@ -1,0 +1,12 @@
+{
+  "name": "unconference-planner",
+  "version": "0.1.0",
+  "description": "A simple web app for planning unconferences. Supports proposing talks, voting, and scheduling. Based on Redux, Polymer, and Firebase",
+  "main": "index.html",
+  "repository": {
+    "url": "https://github.com/drufball/unconference-planner.git",
+    "type": "git"
+  },
+  "author": "Dru Knox",
+  "license": "MIT"
+}
