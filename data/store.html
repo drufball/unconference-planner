@@ -1,0 +1,10 @@
+<script src="../node_modules/redux/dist/redux.js"></script>
+<script src="./store.js"></script>
+<link rel="import" href="../bower_components/polymer-redux/polymer-redux.html">
+
+<script>
+    // UnconferencePlanner namespace
+    window.UnconferencePlanner = window.UnconferencePlanner || {};
+    // behavior
+    UnconferencePlanner.StoreMixin = PolymerRedux(store);
+</script>

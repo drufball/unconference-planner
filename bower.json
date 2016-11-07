@@ -1,0 +1,21 @@
+{
+  "name": "unconference-planner",
+  "description": "A simple web app for planning unconferences. Supports proposing talks, voting, and scheduling. Based on Redux, Polymer, and Firebase",
+  "main": "index.html",
+  "authors": [
+    "Dru Knox"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/drufball/unconference-planner",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#2.0-preview",
+    "polymer-redux": "polymer-2"
+  }
+}

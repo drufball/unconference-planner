@@ -8,5 +8,8 @@
     "type": "git"
   },
   "author": "Dru Knox",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^3.6.0"
+  }
 }
