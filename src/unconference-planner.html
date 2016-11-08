@@ -1,6 +1,9 @@
 <!-- Load the Polymer.Element base class -->
 <link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<!-- Load data model objects -->
 <link rel="import" href="../../data/store.html">
+<link rel="import" href="../../data/firebase-mirror.html">
 
 <dom-module id="unconference-planner">
   <template>
@@ -9,7 +12,10 @@
     </style>
 
     <!-- Local DOM -->
-
+    <firebase-mirror talks="[[talks]]"
+                     on-server-update="_serverUpdated">
+    </firebase-mirror>
+    <button on-click="_logState">Log state</button>
   </template>
   <script>
     const { StoreMixin, act:actions } = window.UnconferencePlanner;
@@ -33,14 +39,15 @@
 
       connectedCallback() {
         super.connectedCallback();
-        // Load sample data until we get Firebase set up
-        this._loadData();
       }
 
-      _loadData() {
-        fetch('/data/test-state.json')
-        .then(response => response.json())
-        .then(data => this.dispatch(actions.load(data)));
+      _serverUpdated(event) {
+        this.dispatch(actions.db_update(event.detail));
+      }
+
+      _logState() {
+        console.log(this.talks);
+        console.log(this.user);
       }
     }
     customElements.define(UnconferencePlanner.is, UnconferencePlanner);

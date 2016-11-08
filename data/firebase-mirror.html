@@ -1,0 +1,62 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
+
+<dom-module id="firebase-mirror">
+  <script>
+    class FirebaseMirror extends Polymer.Element {
+      static get is() { return 'firebase-mirror' }
+
+      static get config() {
+        // properties, observers meta data
+        return {
+          properties: {
+            talks: {
+              type: Array,
+              observer: '_stateChanged'
+            },
+            fb: Object,
+            clientUpdating: Boolean
+          }
+        };
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this._connect();
+      }
+
+      _connect() {
+        const config = {
+          apiKey: "AIzaSyAiKqm2SCNYPAHUhjwmXOiUlVP1FlJN8q4",
+          authDomain: "unconference-planner.firebaseapp.com",
+          databaseURL: "https://unconference-planner.firebaseio.com"
+        };
+        firebase.initializeApp(config);
+        this.fb = firebase.database().ref('/talks');
+        this.fb.on('value', this._serverUpdate.bind(this));
+      }
+
+      _serverUpdate(update) {
+        if(this.clientUpdating) {
+          console.log("EQUAL");
+          this.clientUpdating = false;
+          return;
+        }
+        const event = new CustomEvent(
+          'server-update',
+          { 'detail': update.val() }
+        );
+        this.dispatchEvent(event);
+      }
+
+      _stateChanged(newData, oldData) {
+        if(oldData) {
+          this.fb.set(newData);
+          this.clientUpdating = true;
+        }
+      }
+    }
+    customElements.define(FirebaseMirror.is, FirebaseMirror);
+  </script>
+</dom-module>

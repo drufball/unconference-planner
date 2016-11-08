@@ -16,6 +16,13 @@
   ],
   "dependencies": {
     "polymer": "Polymer/polymer#2.0-preview",
-    "polymer-redux": "polymer-2"
+    "polymer-redux": "polymer-2",
+    "polymerfire": "firebase/polymerfire#2.0-preview"
+  },
+  "resolutions": {
+    "polymer": "2.0-preview",
+    "webcomponentsjs": "v1",
+    "polymerfire": "2.0-preview",
+    "app-storage": "2.0-preview"
   }
 }

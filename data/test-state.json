@@ -2,7 +2,7 @@
   "talks": [
     {
       "id": 0,
-      "title": "This is an example title",
+      "title": "This is an outdated example title",
       "presenter": "drufball",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam non luctus justo. Nam at suscipit orci. Aliquam pharetra, diam a sollicitudin rutrum, ante dolor maximus magna, sed sagittis neque orci in mi. Vestibulum sit amet libero molestie, accumsan enim eget, dapibus quam. Donec pellentesque quis dui scelerisque venenatis. Nulla facilisi. Nunc dictum ligula velit, in efficitur ante ornare aliquam. Donec eget interdum ligula. Aenean placerat finibus dolor at hendrerit. Phasellus non porta orci, vel tincidunt leo. Pellentesque pharetra id massa vel porta. Nam in tortor egestas massa condimentum tincidunt semper non velit.",
       "likes": 3,
